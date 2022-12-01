@@ -1,26 +1,4 @@
-(local fennel (require :fennel))
-
-(fn dbg! [x]
-  (print (fennel.view x)))
-
-(fn table.sum [table]
-  (var sum 0)
-  (each [idx elf (pairs table)]
-    (set sum (+ sum elf)))
-  sum)
-
-(fn table.max [table]
-  (var max 0)
-  (each [idx elf (pairs table)]
-    (if (< max elf)
-        (set max elf)))
-  max)
-
-(fn table.slice [iter from to]
-  (var new-table [])
-  (for [idx from to]
-    (table.insert new-table (?. iter idx)))
-  new-table)
+(require :utils)
 
 (fn get-elfs []
   (let [max-by-elf {}]
@@ -39,5 +17,6 @@
 (local best-three (table.slice elfs 1 3))
 (local sum-best-three (table.sum best-three))
 
-(dbg! sum-best-three)
+(print (.. "Highest: " (. elfs 1)))
+(print (.. "Sum best three: " sum-best-three))
 
