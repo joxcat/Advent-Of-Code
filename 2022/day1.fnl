@@ -1,4 +1,4 @@
-(require :utils)
+(local u (require :utils))
 
 (fn get-elfs []
   (let [max-by-elf {}]
@@ -14,8 +14,8 @@
 (table.sort elfs (fn [a b]
                    (< b a)))
 
-(local best-three (table.slice elfs 1 3))
-(local sum-best-three (table.sum best-three))
+(local best-three (u.table.slice elfs 1 3))
+(local sum-best-three (u.table.sum best-three))
 
 (print (.. "Highest: " (. elfs 1)))
 (print (.. "Sum best three: " sum-best-three))
