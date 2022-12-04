@@ -26,7 +26,7 @@
               :total (+ play round)}))))
   results)
 
-(local stdin (u.table.map (io.lines) (fn [v] v)))
+(local stdin (u.io.lines))
 
 (local plays (get-results stdin))
 (local total-score (u.table.sum 
